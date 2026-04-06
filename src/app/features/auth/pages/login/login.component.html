@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="login-container">
+
+  <div class="login-box">
+
+    <div class="login-left">
+      <h2>NailStudio</h2>
+      <p>Bienvenida</p>
+    </div>
+
+    <div class="login-right">
+      <form (ngSubmit)="login()">
+
+        <div class="mb-3">
+          <label>Email</label>
+          <input type="email" [(ngModel)]="email" name="email" placeholder="ejemplo@email.com" required>
+        </div>
+
+        <div class="mb-3">
+          <label>Contraseña</label>
+          <input type="password" [(ngModel)]="password" name="password" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit">Ingresar</button>
+
+      </form>
+    </div>
+
+  </div>
+
+</div>
