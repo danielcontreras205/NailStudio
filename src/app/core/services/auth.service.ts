@@ -2,18 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 
-export interface AuthUser {
-  usuarioId: number;
-  usuarioUuid: string;
-  usuarioUsuario: string;
-  rolId: number | null;
-}
-
-export interface LoginResponse {
-  token: string;
-  user: AuthUser;
-  message: string;
-}
+import { AuthResponse, LoginRequest } from '../models/auth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +14,17 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(this.loginUrl, { username, password }).pipe(
+  login(credentials: LoginRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(this.loginUrl, credentials).pipe(
       tap((response) => {
         sessionStorage.setItem(this.tokenKey, response.token);
         sessionStorage.setItem(this.userKey, JSON.stringify(response.user));
       })
     );
+  }
+
+  isAuthenticated(): boolean {
+    return Boolean(sessionStorage.getItem(this.tokenKey));
   }
 
   logout(): void {
