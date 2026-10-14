@@ -1,6 +1,229 @@
-<div class="home-container">
-  <h1>NailStudio 💅</h1>
-  <p>Bienvenido a nuestro sistema de gestión</p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <button (click)="goToLogin()">Iniciar Sesión</button>
-</div>
+<header class="site-header">
+  <a class="brand" href="#inicio" aria-label="NailStudio, inicio" (click)="closeMenu()">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" fill="none">
+        <path d="M31.5 8.5C18 8.3 9.3 13.5 9.3 23.1c0 5 3.4 8.2 7.7 8.2 9.5 0 14.5-10.5 14.5-22.8Z" />
+        <path d="M8.2 33c4.7-8.1 10.5-13.6 18.6-18.8M18.5 23.3l-.7-7.4m5 3.1 6.8-.3" />
+      </svg>
+    </span>
+    <span class="brand-name">nail<span>studio</span></span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    [attr.aria-label]="menuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'"
+    [attr.aria-expanded]="menuOpen"
+    (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="main-nav" [class.open]="menuOpen" aria-label="Navegación principal">
+    <a href="#inicio" (click)="closeMenu()">Inicio</a>
+    <a href="#servicios" (click)="closeMenu()">Servicios</a>
+    <a href="#experiencia" (click)="closeMenu()">Experiencia</a>
+    <a href="#contacto" (click)="closeMenu()">Contacto</a>
+    <button class="button button-small nav-login" type="button" (click)="goToLogin()">Login <span aria-hidden="true">↗</span></button>
+  </nav>
+</header>
+
+<main #mainContent>
+  <section class="hero section-shell" id="inicio">
+    <div class="hero-copy reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Tu momento, tu estilo</span>
+      <h1>Pequeños detalles,<br><em>grandes historias.</em></h1>
+      <p class="hero-description">Diseño de uñas elegante y personalizado, creado con cariño por una artista mexicana que hoy florece en Colombia.</p>
+      <div class="hero-actions">
+        <a class="button" href="#contacto">Agendar mi cita <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="#servicios">Descubrir servicios <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-note">
+        <span class="note-line"></span>
+        <p>Un espacio para ti, para crear<br>y sentirte bonita por dentro y por fuera.</p>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="hero-image-wrap">
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=1100&q=85"
+          alt="Manos con uñas cuidadas en tonos rosados naturales"
+          fetchpriority="high">
+        <div class="image-caption">
+          <span class="caption-flower" aria-hidden="true">✳</span>
+          <span>Hecho con amor,<br>hecho para ti.</span>
+        </div>
+      </div>
+      <svg class="monstera-art hero-leaf" viewBox="0 0 180 210" fill="none" aria-hidden="true">
+        <path d="M85 199C84 147 80 89 42 23M84 126c-28 2-48-9-48-31 0-14 9-23 22-26 13-3 24 5 26 19M76 94C62 68 66 44 86 36c17-7 32 2 35 16 3 15-9 30-30 36M83 151c25-18 49-19 58-2 7 13 0 26-13 31-13 5-28-1-37-15M57 51l16 20m49-9-28 18m46 76-35-4" />
+      </svg>
+      <div class="hero-sticker"><span>Arte que<br>se siente</span><span class="sticker-star" aria-hidden="true">✳</span></div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true"><span></span> Desliza para descubrir</div>
+  </section>
+
+  <section class="intro section-shell" id="nosotros">
+    <div class="section-kicker reveal"><span>01</span><span class="kicker-rule"></span><span>Un poquito de nosotras</span></div>
+    <div class="intro-content">
+      <h2 class="section-title reveal">La belleza está en<br>sentirte <em>tú misma.</em></h2>
+      <div class="intro-text reveal">
+        <p>NailStudio nació de una pasión: transformar pequeños momentos de cuidado en algo que te haga sonreír cada vez que mires tus manos.</p>
+        <p>Con la experiencia y calidez que traje desde México, hoy creo en Colombia un espacio cercano, profesional y lleno de creatividad. Aquí cada diseño tiene algo de ti.</p>
+        <a class="text-link dark-link" href="#experiencia">Conoce mi historia <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="intro-stamp" aria-hidden="true"><span>con cariño</span><b>♡</b><span>desde México</span></div>
+  </section>
+
+  <section class="services section-shell" id="servicios">
+    <div class="section-heading reveal">
+      <div>
+        <div class="section-kicker"><span>02</span><span class="kicker-rule"></span><span>Un ritual para ti</span></div>
+        <h2 class="section-title">Manos bonitas,<br><em>ánimo bonito.</em></h2>
+      </div>
+      <p>Elige tu momento. Nosotras ponemos el cuidado, la creatividad y todos los detalles para que disfrutes.</p>
+    </div>
+
+    <div class="service-grid">
+      <article class="service-card reveal">
+        <div class="service-image service-image-one">
+          <img           src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=80" alt="Manicure realizado con cuidado en el estudio" loading="lazy">
+          <span class="service-number">01</span>
+        </div>
+        <div class="service-info">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M11 7v8m10-8v8M8 15h16v5a8 8 0 0 1-16 0v-5Zm8 13v-4m-5 4h10" /></svg>
+          </div>
+          <div><h3>Manicure</h3><p>Cuidado delicado, uñas sanas y ese acabado impecable que te acompaña todos los días.</p></div>
+          <span class="service-arrow" aria-hidden="true">↗</span>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-image service-image-two">
+          <img           src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80" alt="Diseño artístico de uñas con detalles delicados" loading="lazy">
+          <span class="service-number">02</span>
+        </div>
+        <div class="service-info">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><path d="m16 3 2.9 8.1L27 14l-8.1 2.9L16 25l-2.9-8.1L5 14l8.1-2.9L16 3Zm9 18 1.4 3.6L30 26l-3.6 1.4L25 31l-1.4-3.6L20 26l3.6-1.4L25 21Z" /></svg>
+          </div>
+          <div><h3>Nail art</h3><p>Pequeñas obras de arte a tu medida: desde un detalle sutil hasta algo que robe miradas.</p></div>
+          <span class="service-arrow" aria-hidden="true">↗</span>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-image service-image-three">
+          <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&w=900&q=80" alt="Paleta de color para una manicura personalizada" loading="lazy">
+          <span class="service-number">03</span>
+        </div>
+        <div class="service-info">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M16 3a13 13 0 1 0 0 26h2.2a3.3 3.3 0 0 0 2.1-5.8 2.5 2.5 0 0 1 1.6-4.4H24a5 5 0 0 0 5-5C29 7.8 23.2 3 16 3Z" /><path d="M10 13h.1M15 8h.1M22 11h.1" /></svg>
+          </div>
+          <div><h3>A tu manera</h3><p>Cuéntame tu idea y juntas la hacemos realidad, con colores y formas que hablan de ti.</p></div>
+          <span class="service-arrow" aria-hidden="true">↗</span>
+        </div>
+      </article>
+    </div>
+    <div class="service-footer reveal"><span class="tiny-leaf" aria-hidden="true">✳</span> Cada cita comienza con una conversación y termina con una sonrisa.</div>
+  </section>
+
+  <section class="journey section-shell" id="experiencia">
+    <div class="journey-photo reveal">
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1100&q=85" alt="Artista preparando con cuidado un servicio de belleza" loading="lazy">
+      <div class="photo-label"><span>Mi camino,</span><em>mi inspiración.</em></div>
+      <svg class="monstera-art journey-leaf" viewBox="0 0 180 210" fill="none" aria-hidden="true">
+        <path d="M85 199C84 147 80 89 42 23M84 126c-28 2-48-9-48-31 0-14 9-23 22-26 13-3 24 5 26 19M76 94C62 68 66 44 86 36c17-7 32 2 35 16 3 15-9 30-30 36M83 151c25-18 49-19 58-2 7 13 0 26-13 31-13 5-28-1-37-15" />
+      </svg>
+    </div>
+    <div class="journey-copy">
+      <div class="section-kicker reveal"><span>03</span><span class="kicker-rule"></span><span>De corazón a corazón</span></div>
+      <h2 class="section-title reveal">Una historia que<br><em>cruza fronteras.</em></h2>
+      <p class="journey-lead reveal">Dos lugares, una misma pasión por crear belleza con las manos.</p>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">EL COMIENZO</span>
+          <h3>México</h3>
+          <p>Donde nació mi amor por el nail art y aprendí que cada mano merece un cuidado único.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">UN NUEVO HOGAR</span>
+          <h3>Colombia</h3>
+          <p>Un nuevo capítulo para compartir mi oficio, conocer nuevas historias y hacerte sentir en casa.</p>
+        </div>
+      </div>
+      <a class="button" href="#contacto">Conversemos <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="greenhouse section-shell">
+    <div class="greenhouse-content reveal">
+      <span class="eyebrow light-eyebrow"><span class="eyebrow-dot"></span> Un respiro entre tus días</span>
+      <h2>Un espacio para<br><em>florecer.</em></h2>
+      <p>Inspirado en la calma de un jardín y la belleza imperfecta de la naturaleza, NailStudio es tu rinconcito para bajar el ritmo, conversar y regalarte un momento solo tuyo.</p>
+      <a class="light-link" href="#contacto">Ven a conocernos <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="greenhouse-art reveal" aria-hidden="true">
+      <svg class="monstera-large" viewBox="0 0 300 360" fill="none">
+        <path d="M147 348c-1-83-8-183-85-291M146 231C91 238 51 213 51 170c0-28 18-49 43-54 27-5 48 10 52 38m-20 27C101 128 110 75 149 58c36-16 67 2 74 31 7 31-18 63-58 76m-19 106c47-35 96-37 114-4 14 26 1 53-25 63-27 10-57-2-76-31m-88-177 39 48m98-30-55 42m108 117-67-6" />
+        <path d="M149 58c-11-24-4-43 11-49m8 148c27-4 45-20 49-39m-70 170c-16 14-20 33-15 49" />
+      </svg>
+      <span class="greenhouse-note">crecer a tu<br>propio ritmo <b>♡</b></span>
+    </div>
+    <div class="greenhouse-bottom"><span>NATURAL · CÁLIDO · TUYO</span><span>Un pequeño jardín para el alma</span></div>
+  </section>
+
+  <section class="contact section-shell" id="contacto">
+    <div class="contact-intro reveal">
+      <div class="section-kicker"><span>04</span><span class="kicker-rule"></span><span>Tu próximo momento favorito</span></div>
+      <h2 class="section-title">¿Lista para<br><em>consentirte?</em></h2>
+      <p>Cuéntame qué tienes en mente. Estoy aquí para ayudarte a encontrar ese diseño que se siente completamente tuyo.</p>
+      <a class="button" href="https://wa.me/?text=Hola%20NailStudio%2C%20quiero%20agendar%20una%20cita." target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp <span aria-hidden="true">↗</span></a>
+      <span class="contact-hint">Atención con cita previa · Colombia</span>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-card-top">
+        <span class="contact-sparkle" aria-hidden="true">✳</span>
+        <span>HOLA, QUÉ GUSTO</span>
+      </div>
+      <p>Un mensaje tuyo<br>puede ser el inicio<br>de algo <em>bonito.</em></p>
+      <a href="https://wa.me/?text=Hola%20NailStudio%2C%20quiero%20agendar%20una%20cita." target="_blank" rel="noopener noreferrer" aria-label="Escribir a NailStudio por WhatsApp">Hablemos <span aria-hidden="true">↗</span></a>
+      <svg class="contact-leaf monstera-art" viewBox="0 0 180 210" fill="none" aria-hidden="true">
+        <path d="M85 199C84 147 80 89 42 23M84 126c-28 2-48-9-48-31 0-14 9-23 22-26 13-3 24 5 26 19M76 94C62 68 66 44 86 36c17-7 32 2 35 16 3 15-9 30-30 36M83 151c25-18 49-19 58-2 7 13 0 26-13 31-13 5-28-1-37-15" />
+      </svg>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <a class="brand footer-brand" href="#inicio" aria-label="NailStudio, volver al inicio">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M31.5 8.5C18 8.3 9.3 13.5 9.3 23.1c0 5 3.4 8.2 7.7 8.2 9.5 0 14.5-10.5 14.5-22.8Z" /><path d="M8.2 33c4.7-8.1 10.5-13.6 18.6-18.8m-8.3 9.1-.7-7.4m5 3.1 6.8-.3" /></svg>
+      </span>
+      <span class="brand-name">nail<span>studio</span></span>
+    </a>
+    <p>Un espacio para crear,<br>sentir y florecer.</p>
+    <div class="footer-socials">
+      <span>SÍGUENOS</span>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17.5 6.5h.01" /></svg>
+      </a>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h1.7V1.4C17 1.2 15.9 1 14.5 1 11.4 1 9.5 2.8 9.5 6.2V9H6v4h3.5v8H14Z" /></svg>
+      </a>
+    </div>
+    <button class="footer-login" type="button" (click)="goToLogin()">Acceso de clientes <span aria-hidden="true">↗</span></button>
+  </div>
+  <div class="footer-bottom"><span>© {{ currentYear }} NailStudio. Hecho con cariño.</span><a href="#inicio">Volver arriba ↑</a><span>México ♡ Colombia</span></div>
+</footer>
