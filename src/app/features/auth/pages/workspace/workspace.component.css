@@ -1,0 +1,9 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f8f7f7;
+}
+
+.workspace {
+  min-height: 100vh;
+}
